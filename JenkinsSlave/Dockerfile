@@ -17,7 +17,8 @@ RUN apt-get install -y sudo
 # Add user jenkins to the image 
 RUN adduser --quiet autobuild
 # Set password for the jenkins user (you may want to alter this). 
-RUN echo 'autobuild:$up3rNe+S!ave64' | chpasswd && adduser autobuild sudo
+#RUN echo 'autobuild:$up3rNe+S!ave64' | chpasswd && adduser autobuild sudo
+RUN echo 'autobuild:$up3rNe+S!ave64' | chpasswd 
 RUN passwd -l autobuild
 
 #RUN touch /etc/sudoers.d/autobuild
