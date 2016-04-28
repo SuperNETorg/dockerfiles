@@ -18,9 +18,9 @@ To setup Jenkins Master on a given node/server run shell/bash script `jenkins_se
 - Run the script by running command `./jenkins_setup.sh`
 
 If above commands executes without any error then an image with name **jenkins** will be created along with Jenkins Master container having following details:
-1. Host/Node/Server port 8080 will be mapped to master container's port 8080
-2. Container's volume will be mounted at **/home/ubuntu/jenkins_home**
-3. User**jenkins** will be created.
+- Host/Node/Server port 8080 will be mapped to master container's port 8080
+- Container's volume will be mounted at **/home/ubuntu/jenkins_home**
+- User**jenkins** will be created.
 
 
 ### JENKINS SLAVE
@@ -30,9 +30,9 @@ To setup Jenkins Slave on a given node/server run shell/bash script `SlaveSetup.
 - Run the script by running command `./SlaveSetup.sh`
 
 If above commands executes without any error then an image with name **jenkins_slave** will be created along with Jenkins slave container having following details:
-1. Host/Node/Server port 21777 will be mapped to slave container's SSH Port 22
-2. Container's volume will be mounted at **/home/ubuntu/slave_home**
-3. User **autobuild** will be created to run without any password and having no root privileges.
+- Host/Node/Server port 21777 will be mapped to slave container's SSH Port 22
+- Container's volume will be mounted at **/home/ubuntu/slave_home**
+- User **autobuild** will be created to run without any password and having no root privileges.
 
 ### Verification.
 In order to verify if above process has setup Jenkins Master/Slave on give node/server check docker containers.
