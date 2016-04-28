@@ -14,15 +14,11 @@ RUN mkdir -p /var/run/sshd
 RUN apt-get install -y openjdk-7-jdk
 RUN apt-get install -y sudo
 
-# Add user jenkins to the image 
+# Add user autobuild to the image 
 RUN adduser --quiet autobuild
-# Set password for the jenkins user (you may want to alter this). 
-#RUN echo 'autobuild:$up3rNe+S!ave64' | chpasswd && adduser autobuild sudo
 RUN echo 'autobuild:$up3rNe+S!ave64' | chpasswd 
 RUN passwd -l autobuild
 
-#RUN touch /etc/sudoers.d/autobuild
-#RUN echo "autobuild ALL=(ALL) NOAPSSWD: ALL" >> /etc/sudoers.d/autobuild
 # Standard SSH port 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
