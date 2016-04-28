@@ -5,8 +5,8 @@ This setup assumes following things:
 - Docker is already installed on given node/server
 - Git is already installed on given node/server
 - User ubuntu is present on given node/server
-- For Jenkins master make sure port 8080 of host/server/node is open and not in use by any other process.
-- For Jenkins slave make sure port 21777 of host/server/node is open and not in use by any other process.
+- For Jenkins master port 8080 of host/server/node is open and not in use by any other process.
+- For Jenkins slave port 21777 of host/server/node is open and not in use by any other process.
 
 If anything is missing setup will fail.
 To install docker run following command in a terminal. 
