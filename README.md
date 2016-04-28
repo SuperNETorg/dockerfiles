@@ -4,21 +4,45 @@ This setup assumes following things:
 - OS used on given node/server is Ubuntu 14.04
 - Docker is already installed on given node/server
 - Git is already installed on given node/server
+- User ubuntu is present on given node/server
 
-If docker is not installed then you can install it by running following command in a terminal. 
+If anything is missing setup will fail.
+To install docker run following command in a terminal. 
 ```
 curl -fsSL https://get.docker.com/ | sh
 ```
 ### JENKINS MASTER 
 To setup Jenkins Master on a given node/server run shell/bash script `jenkins_setup.sh` in terminal. Follow the below instructions: 
-- Go to JenkinsMaster directory.
+- Go to JenkinsMaster directory using terminal.
 - Make script executable by running command `chmod -f u+x jenkins_setup.sh`
 - Run the script by running command `./jenkins_setup.sh`
-If above command executes without any error then Jenkins Master will be setup in a container.
 
-To display all docker containers run following command: 
+If above commands executes without any error then an image with name **jenkins** will be created along with Jenkins Master container having following details:
+1. Host/Node/Server port 8080 will be mapped to master container's port 8080
+2. Container's volume will be mounted at **/home/ubuntu/jenkins_home**
+3. User**jenkins** will be created.
+
+
+### JENKINS SLAVE
+To setup Jenkins Slave on a given node/server run shell/bash script `SlaveSetup.sh` in terminal. Follow the below instructions:
+- Got to JenkinsSlave directory using terminal.
+- Make script `SlaveSetup.sh` executable by running command `chmod -f u+x SlaveSetup.sh`
+- Run the script by running command `./SlaveSetup.sh`
+
+If above commands executes without any error then an image with name **jenkins_slave** will be created along with Jenkins slave container having following details:
+1. Host/Node/Server port 21777 will be mapped to slave container's SSH Port 22
+2. Container's volume will be mounted at **/home/ubuntu/slave_home**
+3. User **autobuild** will be created to run without any password and having no root privileges.
+
+### Verification.
+In order to verify if above process has setup Jenkins Master/Slave on give node/server check docker containers.
+To display all docker containers run following command:
 ```
 sudo docker ps -a -q
-``` 
-### JENKINS SLAVE
+```
+
+To display all docker images run following command:
+```
+sudo docker images 
+```
 
