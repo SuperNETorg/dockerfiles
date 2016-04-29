@@ -71,10 +71,15 @@ Let us create our Jenkins Master container from above created image. In order to
 ```
 sudo docker run -v /home/ubuntu/jenkins_home:/var/jenkins_home -p 8080:8080 -d jenkins
 ```
+
 `-v /home/ububtu/jenkins_home:/var/jenkins_home` is volume mount, where in path `/home/ububtu/jenkins_home` is the one we created earlier. If you have created a directory at a different location then make sure you add that location in the above command.
+
 `-p 8080:8080` is used to map host port 8080 to container's port 8080.
+
 `-d` flags makes container as daemon and keeps it running in the background. 
+
 `jenkins` is local REPOSITORY image that we created.
+
 If everything works without any problem or error then you should see Jenkins Master running on port 8080. You can verify this by entering node/server ip followed by :port.
 
 
@@ -93,8 +98,13 @@ This will create image `jenkins_slave`. If first run fails try again for 2 or 3 
 ```
 sudo docker run -d -p 21777:22 -v /home/ubuntu/slave_home:/home/autobuild jenkins_slave
 ```
+
 `-d` flag makes container as daemon and keeps it running in the background.
+
 `-p 21777:22` maps port 21777 of host to containers port 22.
+
 `-v /home/ubuntu/slave_home:/home/autobuild` maps the volume for container.
+
 `jenkins_slave` is local REPOSITORY image that we created.
+
 This will create Jenkins slave container. You can check this by listing all containers using command `sudo docker ps -a`
