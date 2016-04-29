@@ -49,7 +49,7 @@ To display all docker images run following command:
 sudo docker images 
 ```
 
-### Toubleshooting Setup
+### Troubleshooting Setup
 If above scripts fails to create containers on given node or machine then please follow all the below steps to debug and manually create all required containers.
 
 **JENKINS MASTER**
