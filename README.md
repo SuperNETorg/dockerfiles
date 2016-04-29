@@ -41,7 +41,7 @@ If above commands executes without any error then an image with name **jenkins_s
 In order to verify if above process has setup Jenkins Master/Slave on give node/server check docker containers.
 To display all docker containers run following command:
 ```
-sudo docker ps -a -q
+sudo docker ps -a 
 ```
 
 To display all docker images run following command:
