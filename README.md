@@ -23,7 +23,7 @@ To setup Jenkins Master on a given node/server run shell/bash script `jenkins_se
 If above commands executes without any error then an image with name **jenkins** will be created along with Jenkins Master container having following details:
 - Host/Node/Server port 8080 will be mapped to master container's port 8080
 - Container's volume will be mounted at **/home/ubuntu/jenkins_home**
-- User**jenkins** will be created.
+- User **jenkins** will be created.
 
 
 ### JENKINS SLAVE
