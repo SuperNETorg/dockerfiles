@@ -78,6 +78,7 @@ If everything works without any problem or error then you should see Jenkins Mas
 
 
 **JENKINS SLAVE**
+
 To setup Jenkins Slave manually we need to make sure no old image or container for Jenkins slave exists. Procedure to remove old image and container is same as above, only difference if instead of looking for master container and image you will be looking for slave container and image. Slave image REPOSITORY is `jenkins_slave`. After removing all image and containers please follow these steps to create image and container:
 - Goto directory `JenkinsSlave`.
 - To create an image run 
