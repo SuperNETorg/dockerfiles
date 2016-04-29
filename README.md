@@ -51,7 +51,9 @@ sudo docker images
 
 ### Toubleshooting Setup
 If above scripts fails to create containers on given node or machine then please follow all the below steps to debug and manually create all required containers.
+
 **JENKINS MASTER**
+
 To steup Jenkins Master manually we need to make sure any old docker image or container for Jenkins Master does not exists. To remove all old images and containers follow these steps:
 - Execute `sudo docker ps -a` to list all container. Note down the ID of master container that has exited/running.
 - If container is running we need to **stop** it before removing it. To stop the container run `sudo docker stop containerid`
