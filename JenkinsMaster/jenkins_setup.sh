@@ -9,7 +9,15 @@ sudo apt-get install curl -y
 #Setup Git and pull Dockerfile
 sudo apt-get install git -y
 
-sudo docker build -t jenkins .
-sudo docker run -v /home/ubuntu/jenkins_home:/var/jenkins_home -p 8080:8080 -d jenkins
+# To create image for jenkins version <2
+#sudo docker build -t jenkins .
+
+# To create image for jenkins version >=2.0
+sudo docker build -t jenkins_version_2 .
+
+# To setup old version of jenkins i.e. <2.0
+#sudo docker run -v /home/ubuntu/jenkins_home:/var/jenkins_home -p 8080:8080 -d jenkins
+# TO setup new version of jenkins i.e. >=2.0
+sudo docker run -v /home/ubuntu/jenkins_home:/var/jenkins_home -p 8080:8080 -d jenkins_version_2
 
 echo "JENKINS RUNNING ON PORT 8080"
