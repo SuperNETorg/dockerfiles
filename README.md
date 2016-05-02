@@ -20,7 +20,7 @@ To setup Jenkins Master on a given node/server run shell/bash script `jenkins_se
 - Make script executable by running command `chmod -f u+x jenkins_setup.sh`
 - Run the script by running command `./jenkins_setup.sh`
 
-If above commands executes without any error then an image with name **jenkins** will be created along with Jenkins Master container having following details:
+If above commands executes without any error then an image with name **jenkins_version_2** will be created along with Jenkins Master container having following details:
 - Host/Node/Server port 8080 will be mapped to master container's port 8080
 - Container's volume will be mounted at **/home/ubuntu/jenkins_home**
 - User **jenkins** will be created.
@@ -58,18 +58,18 @@ To steup Jenkins Master manually we need to make sure any old docker image or co
 - Execute `sudo docker ps -a` to list all container. Note down the ID of master container that has exited/running.
 - If container is running we need to **stop** it before removing it. To stop the container run `sudo docker stop containerid`
 - To remove stopped container execute `sudo docker rm containerid`, this will remove all containers. 
-- To remove image of Jenkins Master i.e. `jenkins` image we have to find its id. List all the images of docker by running command `sudo docker images` and note down the id of image with REPOSITORY as `jenkins`
+- To remove image of Jenkins Master i.e. `jenkins_version_2` image we have to find its id. List all the images of docker by running command `sudo docker images` and note down the id of image with REPOSITORY as `jenkins_version_2`
 - Run `sudo docker rmi imageid` to remove the image.
 
 This cleans up all old containers and images. In order to create a container we need to create our image using docker file provided in the repo. Goto JenkinsMaster directory and run
 ```
-sudo docker build -t jenkins .
+sudo docker build -t jenkins_version_2 .
 ```
-If all works then we will get an image with REPOSITORY as `jenkins`. To list all images run `sudo docker images`, new image with REPOSITORY as `jenkins` should be present. If it fails to create image on first run try again 2 or 3 times. If fails even after trying 2 or 3 time then there is some problem either with OS/Docker/Dockerfile itself.
+If all works then we will get an image with REPOSITORY as `jenkins_version_2`. To list all images run `sudo docker images`, new image with REPOSITORY as `jenkins_version_2` should be present. If it fails to create image on first run try again 2 or 3 times. If fails even after trying 2 or 3 time then there is some problem either with OS/Docker/Dockerfile itself.
 
 Let us create our Jenkins Master container from above created image. In order to create container we have to make sure that our data directory for mounting container volume on host needs to be present. Create a directory at this location `/home/ubuntu/jenkins_home` or any desired location you want. Make sure to note down this path as we are going to need this when creating our container. Run
 ```
-sudo docker run -v /home/ubuntu/jenkins_home:/var/jenkins_home -p 8080:8080 -d jenkins
+sudo docker run -v /home/ubuntu/jenkins_home:/var/jenkins_home -p 8080:8080 -d jenkins_version_2
 ```
 
 `-v /home/ububtu/jenkins_home:/var/jenkins_home` is volume mount, where in path `/home/ububtu/jenkins_home` is the one we created earlier. If you have created a directory at a different location then make sure you add that location in the above command.
@@ -78,7 +78,7 @@ sudo docker run -v /home/ubuntu/jenkins_home:/var/jenkins_home -p 8080:8080 -d j
 
 `-d` flags makes container as daemon and keeps it running in the background. 
 
-`jenkins` is local REPOSITORY image that we created.
+`jenkins_version_2` is local REPOSITORY image that we created.
 
 If everything works without any problem or error then you should see Jenkins Master running on port 8080. You can verify this by entering node/server ip followed by :port.
 
