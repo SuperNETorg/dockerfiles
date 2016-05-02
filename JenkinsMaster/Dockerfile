@@ -84,28 +84,3 @@ ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
 # from a derived Dockerfile, can use `RUN plugins.sh active.txt` to setup /usr/share/jenkins/ref/plugins from a support bundle
 COPY plugins.sh /usr/local/bin/plugins.sh
 
-
-#RUN apt-get update && apt-get install -y --no-install-recommends openjdk-7-jdk
-
-# Install maven, ant, ruby, rbenv, make 
-# RUN apt-get update && apt-get install -y maven ant ruby rbenv make
-# RUN echo "1.554.3" > .lts-version-number
-# RUN wget -q -O - http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key | sudo apt-key add -
-# RUN echo deb http://pkg.jenkins-ci.org/debian-stable binary/ >> /etc/apt/sources.list
-# RUN apt-get update && apt-get install -y jenkins
-
-
-#RUN mkdir -p /var/jenkins_home && chown -R jenkins /var/jenkins_home
-#ADD init.groovy /tmp/WEB-INF/init.groovy
-#RUN apt-get install -y zip && cd /tmp && zip -g /usr/share/jenkins/jenkins.war WEB-INF/init.groovy
-#USER jenkins
-
-#VOLUME /var/jenkins_home
-#ENV JENKINS_HOME /var/jenkins_home
-
-# for main web interface:
-#EXPOSE 8080 
-
-# will be used by attached slave agents:
-#EXPOSE 50000 
-#CMD ["/usr/bin/java",  "-jar",  "/usr/share/jenkins/jenkins.war"]
