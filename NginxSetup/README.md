@@ -7,7 +7,7 @@ To setup NGINX with letsencrypt on a given node/server run shell/bash script `se
 
 
 ### Additional Setup to be done manually
-Letsencrypt's certificates expires after 90 days. To update all expired setup automatically setup cron job as described below:
+Letsencrypt's certificates are valid for 90 days, it is recommended to renew certificates after 60 days. To update all expired setup automatically setup cron job as described below:
 - Run command `sudo crontab -e` and select desired editor by pressing respective number key, this will open a cron tab file
 - Apped following lines 
 ```
