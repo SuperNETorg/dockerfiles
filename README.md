@@ -2,6 +2,8 @@
 This repository contains files to setup `Jenkins Master/Slave` using `docker` on a given node/server
 Please refer to documentation in respective directory to setup Jenkins Master/Slave.
 
+To install NGINX and Letsencrypt follow the documentation given in `NginxSetup` directory 
+
 ### Docker Installation 
 To install docker simply run below command in terminal
 
