@@ -11,7 +11,7 @@ RUN sed -i 's|session    required     pam_loginuid.so|session    optional     pa
 RUN mkdir -p /var/run/sshd
 
 # Install JDK 7 (latest edition) 
-RUN apt-get install -y openjdk-7-jdk
+RUN apt-get install -y openjdk-7-jdk git curl zip
 RUN apt-get install -y sudo
 
 # Add user autobuild to the image 
