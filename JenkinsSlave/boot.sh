@@ -17,7 +17,7 @@
  cd src
  git checkout -b pepper_49 origin/pepper_49
  gclient sync
- git config --global user.name "Shailesh"
- git config --global user.email "shailesh.patel2009@gmail.com"
+ git config --global user.name "flamingice"
+ git config --global user.email "flamingice@users.noreply.github.com"
 # ./make_all.sh curl
  NACL_ARCH=pnacl make curl
