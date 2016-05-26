@@ -4,7 +4,7 @@ This setup assumes following things:
 - OS used on given node/server is Ubuntu 14.04
 - Docker is already installed on given node/server
 - Git is already installed on given node/server
-- User ubuntu is present on given node/server
+- User ubuntu (or any user that you want to use e.g. root/ubuntu/etc) is present on given node/server
 - For Jenkins slave port 21777 of host/server/node is open and not in use by any other process.
 
 If anything is missing setup will fail.
@@ -24,6 +24,7 @@ If above commands executes without any error then an image with name **jenkins_s
 - Host/Node/Server port 21777 will be mapped to slave container's SSH Port 22
 - Container's volume will be mounted at **/home/ubuntu/slave_home**
 - User **autobuild** will be created to run without any password and having no root privileges.
+
 
 ### Verification.
 In order to verify if above process has setup Jenkins Slave on give node/server check docker containers.
@@ -64,3 +65,11 @@ sudo docker run -d -p 21777:22 -v /home/ubuntu/slave_home:/home/autobuild jenkin
 `jenkins_slave` is local REPOSITORY image that we created.
 
 This will create Jenkins slave container. You can check this by listing all containers using command `sudo docker ps -a`
+
+
+### ENVIRONMENT SETUP FOR IGUANA CHROME BUILD
+This step is required only once when `slave_home` directory contains nothing.
+- Copy `boot.sh` file into `slave_home` directory i.e. `/home/ubuntu/slave_home/`
+- Login to docker container, obtain container id by running `sudo docker ps -a`, run command `sudo docker exec -i -t --user=autobuild containerid /bin/bash`
+- After login to container go to `/home/autobuild/` and run command ./boot.sh, if boot.sh is not executable the make it executable by running command `chmod u+x boot.sh`
+- This will steup the environment for chrome build.
