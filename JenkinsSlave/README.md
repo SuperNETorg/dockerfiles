@@ -71,5 +71,5 @@ This will create Jenkins slave container. You can check this by listing all cont
 This step is required only once when `slave_home` directory contains nothing.
 - Copy `boot.sh` file into `slave_home` directory i.e. `/home/ubuntu/slave_home/`
 - Login to docker container, obtain container id by running `sudo docker ps -a`, run command `sudo docker exec -i -t --user=autobuild containerid /bin/bash`
-- After login to container go to `/home/autobuild/` and run command ./boot.sh, if boot.sh is not executable the make it executable by running command `chmod u+x boot.sh`
+- After login to container go to `/home/autobuild/` and run command `./boot.sh`, if boot.sh is not executable then make it executable by running command `chmod u+x boot.sh`
 - This will steup the environment for chrome build.
