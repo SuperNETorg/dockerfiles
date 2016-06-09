@@ -4,7 +4,6 @@ To setup NGINX with letsencrypt on a given node/server run shell/bash script `se
 - Go to `NginxSetup` directory using terminal.
 - Make script executable by running command `chmod -f u+x setup_nginx.sh`
 - Run the script by running command `./setup_nginx.sh`
-- Setup strong Diffie-Hellman Group by running command `sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048`
 
 ### Additional Setup to be done manually
 Letsencrypt's certificates are valid for 90 days, it is recommended to renew certificates after 60 days. To update all expired certificates automatically setup cron job as described below:
