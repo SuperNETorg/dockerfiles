@@ -13,7 +13,7 @@ RUN dpkg --add-architecture i386
 RUN apt-get update
 RUN apt-get install -y gcc g++
 RUN apt-get install -y dpkg-dev wget curl zip
-RUN apt-get install -y --force-yes \
+RUN apt-get update && apt-get install -y --force-yes --fix-missing \
 		openssh-server \
 		openjdk-7-jdk \
 		sudo \
