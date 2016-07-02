@@ -55,7 +55,7 @@ sudo docker build -t jenkins_version_2 .
 ```
 If all works then we will get an image with REPOSITORY as `jenkins_version_2`. To list all images run `sudo docker images`, new image with REPOSITORY as `jenkins_version_2` should be present. If it fails to create image on first run try again 2 or 3 times. If fails even after trying 2 or 3 time then there is some problem either with OS/Docker/Dockerfile itself.
 
-Let us create our Jenkins Master container from above created image. In order to create container we have to make sure that our data directory for mounting container volume on host needs to be present. Create a directory at this location `/home/ubuntu/jenkins_home` or any desired location you want. Make sure to note down this path as we are going to need this when creating our container. Run
+Let us create our Jenkins Master container from above created image. In order to create container we have to make sure that our data directory for mounting container volume on host needs to be present. Create a directory at this location `/home/ubuntu/jenkins_home` or any desired location you want. Make sure to note down this path as we are going to need this when creating our container.
 To restart container automatically add restart policy to the run command as shown below:
 
 ```
