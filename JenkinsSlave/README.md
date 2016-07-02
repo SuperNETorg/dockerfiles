@@ -52,8 +52,15 @@ sudo docker build -t jenkins_slave .
 This will create image `jenkins_slave`. If first run fails try again for 2 or 3 times. If it still fails then more debugging is required.
 
 - To create a container make sure directory for container volume mapping exists. Create a directory at `/home/ubuntu/slave_home` or any desired location that you prefer. Note down the comlpete path for this directory. Make sure port 21777 is open and not in use. Run below command to create the container
+To restart container automatically add restart policy to run command as shown below:
+
 ```
-sudo docker run -d -p 21777:22 -v /home/ubuntu/slave_home:/home/autobuild jenkins_slave
+sudo docker run --restart="always" -d -p 21777:22 -v /home/ubuntu/slave_home:/home/autobuild jenkins_slave
+```
+
+Or use below command without restart policy
+```
+sudo docker run --restart="always" -d -p 21777:22 -v /home/ubuntu/slave_home:/home/autobuild jenkins_slave
 ```
 
 `-d` flag makes container as daemon and keeps it running in the background.

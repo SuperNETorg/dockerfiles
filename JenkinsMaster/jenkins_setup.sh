@@ -18,6 +18,9 @@ sudo docker build -t jenkins_version_2 .
 # To setup old version of jenkins i.e. <2.0
 #sudo docker run -v /home/ubuntu/jenkins_home:/var/jenkins_home -p 8080:8080 -d jenkins
 # TO setup new version of jenkins i.e. >=2.0
-sudo docker run -v /home/ubuntu/jenkins_home:/var/jenkins_home -p 8080:8080 -d jenkins_version_2
+#sudo docker run -v /home/ubuntu/jenkins_home:/var/jenkins_home -p 8080:8080 -d jenkins_version_2
+
+# Add policy restart to make container start always.
+sudo docker run --restart="always" -v /home/ubuntu/jenkins_home:/var/jenkins_home -p 8080:8080 -d jenkins_version_2
 
 echo "JENKINS RUNNING ON PORT 8080"
